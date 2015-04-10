@@ -9,12 +9,17 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "The Middleman" %></title>
     
-    <%= stylesheet_link_tag "normalize", "all" %>
+    <%= stylesheet_link_tag "all" %>
     <%= javascript_include_tag  "all" %>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'
+          rel='stylesheet' type='text/css'>
   </head>
   
-  <body class="<%= page_classes %>">
-    <h1>Middleman Demo</h1>
-    <%= yield %>
+  <body>
+    <div id="main" role="main">
+      <%= partial "partials/nav" %>
+      <%= yield %>
+      <%= partial "partials/footer" %>
+    </div>
   </body>
 </html>
